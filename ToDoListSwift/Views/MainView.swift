@@ -13,11 +13,11 @@ struct MainView: View {
     var body: some View {
         
         
-        NavigationView {
+//        NavigationView {
             
             LoginView()
             
-        }// End NavigationView
+//        }// End NavigationView
         
         
         
