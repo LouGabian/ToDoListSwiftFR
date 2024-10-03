@@ -19,14 +19,10 @@ struct LoginView: View {
             
             VStack /* VStack#1 */ {
                 
-                
-                
                 //MARK: Header
-                HeaderView()
+                HeaderView(title: "Faï la liste", subtitle: "Passez à l'action!", angle: 15, background: Color.pink)
                 
-                
-                
-                //MARK: Login Form
+                //Login Form
                 Form {
                     TextField("Adresse Email", text: $email)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -48,6 +44,7 @@ struct LoginView: View {
                         } // END ZSTACK LABEL
                         
                     }//END of Button
+                    .padding()
                     
                 }//END of Form
                 
