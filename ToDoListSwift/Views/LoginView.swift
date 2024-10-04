@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    
-    @State var email: String = ""
-    @State var password: String = ""
+    @StateObject var viewModel = LoginViewViewModel()
     
     
     var body: some View {
@@ -23,30 +21,37 @@ struct LoginView: View {
                 HeaderView(title: "Faï la liste", subtitle: "Passez à l'action!", angle: 15, background: Color.pink)
                 
                 //Login Form
+
                 Form {
-                    TextField("Adresse Email", text: $email)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    SecureField("Mot de passe", text: $password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    if !viewModel.errorMessage.isEmpty {
+                        Text(viewModel.errorMessage)
+                            .foregroundColor(.red)
+                    }
                     
-                    Button {
-                        //Attempt log in
-                    } label: {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.blue)
-                            
-                            Text("Connexion")
-                                .foregroundColor(Color.white)
-                                .bold()
-                            
-                        } // END ZSTACK LABEL
+                    
+                    TextField("Adresse Email", text: $viewModel.email)
+                        .textFieldStyle(DefaultTextFieldStyle())
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled()
+
+                    
+                    SecureField("Mot de passe", text: $viewModel.password)
+                        .textFieldStyle(DefaultTextFieldStyle())
+                    
+                    //MARK: LogIn Button
+                    TLButton (
+                        title: "Connexion",
+                        background: Color.blue
+                    ) {
+                        
+                        viewModel.login()
                         
                     }//END of Button
                     .padding()
                     
                 }//END of Form
+                .offset(y: -50)
                 
                 //MARK: Create Account
                 VStack{

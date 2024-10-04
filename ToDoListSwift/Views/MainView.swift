@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct MainView: View {
-    
+    //Pour savoir si l'utilisateur est connecté :
+    @StateObject var viewModel = MainViewViewModel()
     
     var body: some View {
         
-        
-//        NavigationView {
-            
+        if viewModel.isSignedIn, !viewModel.currentUsserId.isEmpty{
+            // signed in
+            ToDoListView()
+        } else {
+         
             LoginView()
             
-//        }// End NavigationView
-        
-        
-        
-        
+        }
+            
+            
+            
     }// End body: some View
     
 }//End struct MainView
