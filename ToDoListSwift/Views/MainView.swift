@@ -14,19 +14,39 @@ struct MainView: View {
     var body: some View {
         
         if viewModel.isSignedIn, !viewModel.currentUsserId.isEmpty{
-            // signed in
-            ToDoListView()
+            
+            accountView
+            
         } else {
-         
+            
             LoginView()
             
-        }
-            
-            
-            
+        } // if else
+        
+        
+        
     }// End body: some View
     
-}//End struct MainView
+    @ViewBuilder
+    var accountView: some View {
+        
+        TabView {
+            
+            ToDoListView(userId: viewModel.currentUsserId)
+                .tabItem {
+                    Label("Acceuil", systemImage: "house.fill")
+                }
+            
+            ProfileView()
+                .tabItem {
+                    Label("Profil", systemImage: "person.crop.circle.fill")
+                }
+            
+        }//End TableView ...
+        
+    }//END var accountView ...
+    
+}//End struct MainView ...
 
 
 
