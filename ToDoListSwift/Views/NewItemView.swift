@@ -24,7 +24,7 @@ struct NewItemView: View {
             Form {
                 
                 //MARK: Title
-                TextField("Titre", text: .constant(""))
+                TextField("Titre", text: $viewModel.title)
                     .textFieldStyle(DefaultTextFieldStyle())
                 
                 
@@ -49,9 +49,11 @@ struct NewItemView: View {
                 
             }//END form ...
             .alert(isPresented: $viewModel.showAlert) {
-                Alert(title: Text("Erreure"),
-                      message: Text("Veuillez remplir tous les champs et selectionner une date d'échéance à partir d'aujourd'hui."))
-            }//END Alert ...
+                Alert(
+                    title: Text("Erreure"),
+                    message: Text("Veuillez remplir tous les champs et selectionner une date d'échéance à partir d'aujourd'hui.")
+                )//END Alert
+            }//END alert ...
             
             
         }//END VStack ...
