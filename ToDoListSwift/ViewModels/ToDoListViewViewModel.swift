@@ -11,6 +11,7 @@ import Foundation
 
 // ViewModel for list of items view
 // Primary tab
+
 class ToDoListViewViewModel: ObservableObject {
     @Published var showingNewItemView = false
     
@@ -20,6 +21,7 @@ class ToDoListViewViewModel: ObservableObject {
     init (userId: String) {
         self.userID = userId
     }
+
     
     /// Delete to do list item
     /// - Parameter id: item id to delete
