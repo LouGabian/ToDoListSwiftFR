@@ -21,7 +21,7 @@ struct LoginView: View {
                 HeaderView(title: "Faï la liste", subtitle: "Passez à l'action!", angle: 15, background: Color.pink)
                 
                 //Login Form
-
+                
                 Form {
                     
                     if !viewModel.errorMessage.isEmpty {
@@ -34,7 +34,7 @@ struct LoginView: View {
                         .textFieldStyle(DefaultTextFieldStyle())
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
-
+                    
                     
                     SecureField("Mot de passe", text: $viewModel.password)
                         .textFieldStyle(DefaultTextFieldStyle())
@@ -53,7 +53,7 @@ struct LoginView: View {
                 }//END of Form
                 .offset(y: -50)
                 
-                //MARK: Create Account
+                //MARK: Create Account Link
                 VStack{
                     Text("Pas encore inscrit ?")
                         .font(.caption)
@@ -73,12 +73,23 @@ struct LoginView: View {
                 }//End VStack AccountCreating
                 .padding(.bottom, 100)
                 
+                
+                // resetPassword Link
+                NavigationLink {
+                    PasswordResetView()
+                } label: {
+                    Text("Mot de passe oublié ?")
+                        .font(.caption)
+                        .foregroundColor(Color.red)
+                }
+                
+                
                 Spacer()
                 
             }// End de VStack#1
             
         }// END NavigationView
-        
+        .navigationBarBackButtonHidden(true)
     }//End body: some View
     
 }//END struct LoginView
