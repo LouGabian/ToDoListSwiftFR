@@ -12,13 +12,13 @@ import SwiftUI
 struct ToDoListView: View {
     @StateObject var viewModel: ToDoListViewViewModel
     @FirestoreQuery var items: [ToDoListItem]
-   
+    
     
     
     //To Get User and his items
     init(userId: String) {
         self._items = FirestoreQuery(
-        collectionPath: "users/\(userId)/todos"
+            collectionPath: "users/\(userId)/todos"
         )
         self._viewModel = StateObject(
             wrappedValue: ToDoListViewViewModel(userId: userId)
@@ -42,11 +42,11 @@ struct ToDoListView: View {
                             } label: {
                                 Image(systemName: "trash")
                                     .fontWeight(.semibold)
-                                    
-                                }
-                            .tint(.darkRed)
+                                
                             }
-
+                            .tint(.darkRed)
+                        }
+                    
                 }//END List(items)
                 .listStyle(PlainListStyle())
                 

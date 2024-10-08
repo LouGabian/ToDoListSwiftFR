@@ -13,9 +13,7 @@ struct HeaderView: View {
     let subtitle: String
     let angle: Double
     let background: Color
-    
-    
-    
+       
     var body: some View {
         
         ZStack {

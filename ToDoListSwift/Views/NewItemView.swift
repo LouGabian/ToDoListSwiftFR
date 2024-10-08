@@ -47,15 +47,16 @@ struct NewItemView: View {
                 .padding()
                 
                 
-            }//END form ...
+            }//END form ...            
             .alert(isPresented: $viewModel.showAlert) {
                 Alert(
                     title: Text("Erreure"),
                     message: Text("Veuillez remplir tous les champs et selectionner une date d'échéance à partir d'aujourd'hui.")
+                    
                 )//END Alert
+                
             }//END alert ...
-            
-            
+   
         }//END VStack ...
         
     }//END Body ...

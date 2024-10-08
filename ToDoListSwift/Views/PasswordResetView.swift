@@ -81,7 +81,7 @@ struct PasswordResetView: View {
                             .foregroundColor(Color.blue)
                     }
                 }
-                    
+                
                 
                 
                 

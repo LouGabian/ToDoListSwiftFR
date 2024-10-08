@@ -14,7 +14,7 @@ struct RegisterView: View {
     
     
     var body: some View {
-       
+        
         VStack {
             
             
@@ -36,7 +36,7 @@ struct RegisterView: View {
                 
                 SecureField("Mot de Passe", text: $viewModel.password)
                     .textFieldStyle(DefaultTextFieldStyle())
-                    
+                
                 TLButton(title: "Créer un compte", background: .green) {
                     viewModel.register()
                 }

@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct MainView: View {
-    //Pour savoir si l'utilisateur est connecté :
+    
+    //To check if the user is logged in:
     @StateObject var viewModel = MainViewViewModel()
     
     var body: some View {
         
-        if viewModel.isSignedIn, !viewModel.currentUsserId.isEmpty{
+        if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty{
             
             accountView
             
@@ -21,9 +22,8 @@ struct MainView: View {
             
             LoginView()
             
-        } //END if else ... 
-        
-        
+        } //END if else ...
+
         
     }// End body: some View
     
@@ -32,7 +32,7 @@ struct MainView: View {
         
         TabView {
             
-            ToDoListView(userId: viewModel.currentUsserId)
+            ToDoListView(userId: viewModel.currentUserId)
                 .tabItem {
                     Label("Acceuil", systemImage: "house.fill")
                 }

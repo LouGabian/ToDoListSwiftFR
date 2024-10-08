@@ -13,32 +13,25 @@ import Foundation
 class LoginViewViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
-    @Published var errorMessage = ""
+    @Published var errorMessage: String = ""
     
     init() {}
     
     func login() {
         
-        guard validate() else {
-            return
-        }
+        guard validate() else { return }
         
-        // Try log in
-        Auth.auth().signIn(withEmail: email, password: password)
+        Auth.auth().signIn(withEmail: email, password: password) //LogIn
         
-        
-    }//END func login
+    }//END func login ...
     
-    
-    
-    
-    
+
     //MARK: Validate func
-    
     
     private func validate() -> Bool {
         
         errorMessage = "" //to let to hide errorMessage if it's valid
+        
         guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
               !password.trimmingCharacters(in: .whitespaces).isEmpty else {
             errorMessage = "Remplissez tous les champs s'il vous plaît"
@@ -51,10 +44,10 @@ class LoginViewViewModel: ObservableObject {
         }
         
         return true
-    }
+    }//END private func validate ...
     
     
     
-}//END class LoginViewModel
+}//END class LoginViewModel ...
 
 

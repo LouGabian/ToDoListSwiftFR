@@ -18,6 +18,8 @@ class ProfileViewViewModel: ObservableObject {
     @Published var user: User? = nil
     
     
+    //To fecth User
+    
     func fetchUser () {
         
         guard let userID = Auth.auth().currentUser?.uid else { return }
@@ -42,6 +44,7 @@ class ProfileViewViewModel: ObservableObject {
     
     
     
+    //To LogOut
     
     func logOut () {
         do {

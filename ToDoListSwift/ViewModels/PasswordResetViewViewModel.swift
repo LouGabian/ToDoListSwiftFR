@@ -42,6 +42,7 @@ class PasswordResetViewViewModel: ObservableObject {
                 } else {
                     self?.message = "Un email de réinitialisation a été envoyé dans votre boite mail!"
                     self?.isError = false
+                    
                 }//END if else ...
                 
             }//END DispatchQueue
